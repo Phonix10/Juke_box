@@ -12,4 +12,3 @@ public class App {
         System.out.println(new App().getGreeting());
     }
 }
-t
