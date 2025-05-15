@@ -26,6 +26,36 @@ public class Playlist {
         return name;
     }
 
+    public Song getSong(){
+        if (songs.isEmpty()) {
+            return null; // or throw an exception
+        }
+        currentSongIndex = (currentSongIndex+1)% songs.size(); 
+        return songs.get(currentSongIndex);
+    }
+    
+    public void nextSong(){
+        if (!songs.isEmpty()) {
+            currentSongIndex = (currentSongIndex+1)% songs.size(); 
+        }
+    }
+    public Void previousSong() {
+        if(!songs.isEmpty()){
+            currentSongIndex = (currentSongIndex-1+ songs.size())% songs.size(); 
+        }
+        return null;
+    }
+
+    public void addSong(Song song) {
+        if(!songs.contains(song)){
+            songs.add(song);
+        }
+    }
+
+    
+
+
+
     
     
 }

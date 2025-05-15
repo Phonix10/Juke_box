@@ -2,76 +2,69 @@ package juke_box.entities;
 
 public class Song {
 
+    private static int idCounter = 1;
     private int songId;
-    private String songName;
+    private String name;
     private String artist;
     private String album;
     private String genre;
-    private int playCount;
-    private static int songCount = 1;
 
-    // constructor
-    public Song(String songName, String artist, String album, String genre) {
-        this.songName = songName;
+    public Song() {
+    }
+
+    public Song(String name, String artist, String album, String genre) {
+        this.songId = idCounter++;
+        this.name = name;
         this.artist = artist;
         this.album = album;
         this.genre = genre;
-        this.playCount = 0;
-        setId();
     }
-    // constructor for testing
 
-    // setters and getters
-    public int getId() {
+       public int getSongId() {
         return songId;
     }
-    public void setId() {
-        this.songId = songCount;    
-        songCount++;
+    public void setSongId(int songId) {
+        this.songId = songId;
     }
 
-    public String getSongName() {
-        return songName;
-    }  
-    public void setName(String songName) {
-        this.songName = songName;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    
+
+    public String getName() {
+        return name;
+    }
+
     public String getArtist() {
         return artist;
     }
     public void setArtist(String artist) {
         this.artist = artist;
     }
+
+
     public String getAlbum() {
         return album;
     }
+
     public void setAlbum(String album) {
         this.album = album;
     }
+
     public String getGenre() {
         return genre;
     }
+
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    public int getPlayCount() {
-        return playCount;
-    }
-    public void setPlayCount(int playCount) {
-        this.playCount = playCount;
-    }
 
-    // toString method
     @Override
     public String toString() {
-        return "Song{" +
-                "id=" + songId +
-                ", songName='" + songName + '\'' +
-                ", artist='" + artist + '\'' +
-                ", album='" + album + '\'' +
-                ", genre='" + genre + '\'' +
-                ", playCount=" + playCount +
-                '}';
+        return "Song [id=" + songId + "]";
+        
     }
-    
+
 }
