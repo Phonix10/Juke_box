@@ -12,9 +12,9 @@ import juke_box.entities.Song;
 public class SongRepository {
     private final Map<Integer, Song> songs = new HashMap<>();
 
-        public Song save(String name, String artist, String album, String genre) {
+        public Song addSong(String name, String artist, String album, String genre) {
         Song song = new Song(name, artist, album, genre);
-        songs.put(song.getId(), song);
+        songs.put(song.getSongId(), song);
         return song;
     }
 
@@ -24,6 +24,14 @@ public class SongRepository {
 
     public List<Song> findAll() {
         return new ArrayList<>(songs.values());
+    }
+
+    public void deleteById(int id) {
+        songs.remove(id);
+    }
+    
+    public void deleteAll() {
+        songs.clear();
     }
     
 }

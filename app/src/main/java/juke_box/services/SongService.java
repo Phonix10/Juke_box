@@ -13,9 +13,12 @@ public class SongService {
         this.songRepository = songRepository;
     }
 
-    public void addSong(String songName,String artistName, String albumName) {
-        songRepository.addSong(songName, artistName, albumName);
+    public void addSong(String songName,String artistName, String albumName , String genreName) {
+        songRepository.addSong(songName, artistName, albumName, genreName);
         
+    }
+    public void deleteSong(int songId) {
+        songRepository.deleteById(songId);
     }
 
 

@@ -20,7 +20,7 @@ public class Song {
         this.genre = genre;
     }
 
-       public int getSongId() {
+    public int getSongId() {
         return songId;
     }
     public void setSongId(int songId) {
