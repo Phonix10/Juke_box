@@ -1,0 +1,39 @@
+package juke_box.commands;
+
+import java.util.List;
+import java.util.Optional;
+
+public enum CommandKeyword {
+
+    // Register Command Keywords
+    CREATE_GREETING_COMMAND("CREATE_GREETING"),
+    LIST_GREETING_COMMAND("LIST_GREETING"),
+    GET_GREETING_COMMAND("GET_GREETING"),
+    ADD_SONG_COMMAND("ADD_SONG"),
+    ADD_SONG_TO_PLAYLIST_COMMAND("ADD_SONG_TO_PLAYLIST"),
+    CREATE_PLAYLIST_COMMAND("CREATE_PLAYLIST"),
+    CREATE_SONG_COMMAND("CREATE_SONG"),
+    DELETE_PLAYLIST_COMMAND("DELETE_PLAYLIST"),
+    DELETE_SONG_FROM_PLAYLIST_COMMAND("DELETE_SONG_FROM_PLAYLIST"),
+    GET_SONG_COMMAND("GET_SONG"),
+    LIST_PLAYLISTS_COMMAND("LIST_PLAYLISTS"),
+    LIST_SONGS_COMMAND("LIST_SONGS"),
+    LOAD_PLAYLIST_COMMAND("LOAD_PLAYLIST"),
+    NEXT_SONG_COMMAND("NEXT_SONG"),
+    PLAY_SONG_COMMAND("PLAY_SONG"),
+    PREVIOUS_SONG_COMMAND("PREVIOUS_SONG"),
+    STOP_SONG_COMMAND("STOP_SONG");
+
+    private final String name;
+
+    CommandKeyword(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+
+

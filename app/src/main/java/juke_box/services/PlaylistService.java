@@ -37,7 +37,7 @@ public class PlaylistService {
         createPlaylist(playlistName, songIds);
     }
 
-    private Playlist createPlaylist(String playlistName, List<Integer> songIds) {
+    public Playlist createPlaylist(String playlistName, List<Integer> songIds) {
         // TODO Auto-generated method stub
         Playlist playlist =  new Playlist(playlistName);
 
@@ -75,7 +75,7 @@ public class PlaylistService {
 
     }
 
-    private Playlist loadPlaylist(String playlistName) {
+    public Playlist loadPlaylist(String playlistName) {
         if (playlistName == null || playlistName.isEmpty()) {
             throw new IllegalArgumentException("Playlist name cannot be null or empty");
         }

@@ -172,6 +172,18 @@ public class SongService {
     }
 
 
+    public Optional<Song> getSongById(int songId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getSongById'");
+    }
+
+
+    public List<Song> listAllSongs() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listAllSongs'");
+    }
+
+
 
     
 }
