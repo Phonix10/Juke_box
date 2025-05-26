@@ -5,28 +5,44 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.base.Optional;
+import java.util.Optional;
 
 import juke_box.entities.Playlist;
 
 
-public class PlaylistRepository {
+public class PlaylistRepository implements IPlaylistRepository {
     private final Map<String, Playlist> playlists = new HashMap<>();
 
-    public void save(Playlist playlist) {
+    @Override
+    public void addPlaylist(Playlist playlist) {
         playlists.put(playlist.getName(), playlist);
     }
 
+    
+    @Override
     public Optional<Playlist> findByName(String name) {
-        return Optional.fromNullable(playlists.get(name));
+        return Optional.ofNullable(playlists.get(name));
     }
 
+    @Override
     public void delete(String name) {
         playlists.remove(name);
     }
 
+    @Override
     public List<Playlist> findAll() {
         return new ArrayList<>(playlists.values());
+    }
+
+
+    @Override
+    public boolean exists(String name) {
+        // TODO Auto-generated method stub
+        
+        if (name == null || name.isEmpty()){
+            throw new IllegalArgumentException("playlist cannot be found ");
+        }
+        return playlists.containsKey(name);
     }
     
 }

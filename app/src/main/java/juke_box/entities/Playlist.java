@@ -19,37 +19,68 @@ public class Playlist {
         this.songs = new ArrayList<>();
         this.currentSongIndex = 0;
     }
+    public Song getNextSong() {
+        if (songs.isEmpty()) {
+            return null;  // No songs in the playlist
+        }
+        currentSongIndex = (currentSongIndex + 1) % songs.size();  
+        return songs.get(currentSongIndex);
+    }
+
     public int getPlaylistId() {
         return playlistId;
     }
+
     public String getName() {
         return name;
     }
 
-    public Song getSong(){
-        if (songs.isEmpty()) {
-            return null; // or throw an exception
-        }
-        currentSongIndex = (currentSongIndex+1)% songs.size(); 
-        return songs.get(currentSongIndex);
-    }
-    
-    public void nextSong(){
-        if (!songs.isEmpty()) {
-            currentSongIndex = (currentSongIndex+1)% songs.size(); 
-        }
-    }
-    public Void previousSong() {
-        if(!songs.isEmpty()){
-            currentSongIndex = (currentSongIndex-1+ songs.size())% songs.size(); 
-        }
-        return null;
-    }
-
     public void addSong(Song song) {
-        if(!songs.contains(song)){
+        if (!songs.contains(song)) {  // Prevent duplicate songs
             songs.add(song);
         }
+    }
+    
+
+    public void removeSong(Song song) {
+        songs.remove(song);
+        // Adjust currentSongIndex if necessary
+        if (currentSongIndex >= songs.size()) {
+            currentSongIndex = songs.size() - 1;
+        }
+    }
+
+    public List<Song> getSongs() {
+        return new ArrayList<>(songs); // Return a copy to preserve encapsulation
+    }
+
+    public Song getCurrentSong() {
+        if (songs.isEmpty()) {
+            throw new RuntimeException("No songs in the playlist");
+        }
+        return songs.get(currentSongIndex);
+    }
+
+    public void nextSong() {
+        if (!songs.isEmpty()) {
+            currentSongIndex = (currentSongIndex + 1) % songs.size();
+        }
+    }
+
+    public void previousSong() {
+        if (!songs.isEmpty()) {
+            currentSongIndex = (currentSongIndex - 1 + songs.size()) % songs.size();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "playlistId=" + playlistId +
+                ", name='" + name + '\'' +
+                ", songs=" + songs +
+                ", currentSongIndex=" + currentSongIndex +
+                '}';
     }
 
     

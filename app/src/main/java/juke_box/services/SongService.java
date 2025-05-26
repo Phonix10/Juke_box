@@ -148,7 +148,28 @@ public class SongService {
         System.out.println("Now playing: " + currentlyPlayingSong.getName() + " by " + currentlyPlayingSong.getArtist());
     }
 
+    public void createSong(String name, String artist, String album, String genre){
+        if (name == null || name.trim().isEmpty()){
+            throw new IllegalArgumentException("Song name cannot be null or empty");
+        }
+        if (artist == null || artist.trim().isEmpty()) {
+            throw new IllegalArgumentException("Artist name cannot be null or empty");
+        }
+        if (album == null || album.trim().isEmpty()) {
+            throw new IllegalArgumentException("Album name cannot be null or empty");
+        }
+        if (genre == null || genre.trim().isEmpty()) {
+            throw new IllegalArgumentException("Genre cannot be null or empty");
+        }
 
+        Song newSong = new Song();
+        newSong.setName(name);
+        newSong.setArtist(artist);
+        newSong.setAlbum(album);
+        newSong.setGenre(genre);
+
+        songRepository.addSong(newSong);
+    }
 
 
 
